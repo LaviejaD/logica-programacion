@@ -9,18 +9,31 @@ const [otra, setotra] = useState(false);
   const  [intentos, setintento] = useState(5);
   const [dispensar, setdispensar] = useState(-1);
 
-const reset = ()=>{ setsecreto(Math.floor(Math.random() * 100));setdispensar(-1);setotra(false);setintento(5)}
-  const Calcular = () => {
-    if (intentos >0 ){
-setintento(intentos-1)
+const reset = ()=>{ setsecreto(Math.floor(Math.random() * 100));
+    setdispensar(-1);
+    setotra(false);
+    setintento(5)
+}
+const Calcular = () => {
+
+   
+ 
+    if (intentos-1 >=1 ){
+
+ setintento((e)=>e-1)    
 setdispensar(valor)
     }
+if(dispensar === secreto){ 
+    setotra(true)
+setdispensar(-2)
 
-    if (intentos === 0 || dispensar === secreto){
+}
+    if (1===intentos ){
+        console.log(1>intentos, " intentos")
 setotra(true)
 setdispensar(-2)
     }
-    
+   
   };
   const Mensaje = () => {
     if (dispensar ===-1){
@@ -36,6 +49,7 @@ return <p>Te quedaste sin intentos,¿ quieres volver a jugar?.</p>;
       return <p>El numero secreto es mayor, te quedan intentos {intentos}</p>;
     }
     if ( dispensar === secreto){
+        setotra(true)
         return <p>"¡Correcto! ¡Adivinaste el número!"</p>
     }
     
@@ -46,7 +60,7 @@ return <p>Te quedaste sin intentos,¿ quieres volver a jugar?.</p>;
       <h3>
         <Mensaje />
       </h3>
-      {otra?<button onClick={reset}>Jugar otra vez?</button>:null}
+      {otra?<button onClick={reset}>¿Jugar otra vez?</button>:null}
       <form onSubmit={e => e.preventDefault()}>
         <label>
           Ingresa un numero: <span></span>

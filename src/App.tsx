@@ -4,7 +4,7 @@ import { Tabla } from './componentes/tabla.tsx';
 import { Par } from './componentes/parOinpar.tsx';
 import {NumeroSecreto} from "./componentes/numerosecreto.tsx"
 export default function App() {
-  const [menu, setmenut] = React.useState(4);
+  const [menu, setmenut] = React.useState(0);
   console.log(menu);
   const Vistas = () => {
     switch (menu) {

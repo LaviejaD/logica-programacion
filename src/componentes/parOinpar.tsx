@@ -3,18 +3,20 @@ export function Par() {
   const [valor, setvalor] = useState(0);
 
   const [dispensar, setdispensar] = useState(0);
+  const [xd,setxd] = useState(0)
   const Calcular = () => {
-    if (valor % 10 === 0) {
+setxd(valor);
+    if (valor % 2 === 0) {
       return setdispensar(1);
     }
     setdispensar(2);
   };
   const Mensaje = () => {
     if (dispensar === 1) {
-      return <p>El numero "{valor}" es par.</p>;
+      return <p>El numero "{xd}" es par.</p>;
     }
     if (dispensar === 2) {
-      return <p>El numero "{valor}" no es par.</p>;
+      return <p>El numero "{xd}" no es par.</p>;
     }
     return null;
   };
